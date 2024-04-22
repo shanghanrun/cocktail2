@@ -1,0 +1,333 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+#detail-page {
+	width: 100%;
+	overflow: hidden;
+}
+
+.detail-information-container {
+	background-color: rgb(255, 247, 239);
+	width: 100%;
+	height: auto;
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+	padding: 20px;
+}
+
+.badgeWrap {
+	display: flex;
+	gap: 6px;
+	font-size: 12px;
+	font-weight: 600;
+	color: rgb(242, 92, 92);
+	margin-bottom: 10px;
+}
+
+.buttonWrap {
+	display: flex;
+}
+.title {
+	font-size: 28px;
+	font-weight: 800;
+	letter-spacing: -1px;
+	margin-right: 6px;
+}
+
+.detailcontent {
+	line-height: 1.8;
+	white-space: pre-wrap;
+}
+
+.secondTitle {
+	margin-bottom: 2px;
+	font-size: 15px;
+	font-weight: 900;
+	color: rgb(110, 110, 110);
+}
+
+.str-glass {
+	margin-top: 2px;
+	font-size: 17px;
+	font-weight: 900;
+	color: rgb(84, 56, 56);
+}
+
+.cocktail-image-wrap {
+	/* margin-left: 100px; */
+}
+
+.cocktail-image {
+	margin-top: 20px;
+	max-width: 70%;
+	height: auto;
+	max-height: 100%;
+	border-radius: 15px;
+	filter: saturate(120%);
+	margin: 0 auto; /* 이미지를 가운데 정렬합니다. */
+	display: block; /* 이미지를 블록 요소로 설정하여 부모 컨테이너의 너비에 맞추어 표시합니다. */
+}
+
+.detail-content {
+	width: 100%;
+	margin-top: 6px;
+	margin-right: auto;
+	margin-left: auto; /* 가운데 정렬을 위해 추가 */
+	@media (min-width: 600px) {
+		max-width: 600px;
+	}
+}
+
+#middle-banner {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.recipe {
+	margin-top: 20px;
+}
+
+.translation {
+	background-color: white;
+}
+
+.unit-btn {
+	color: black !important;
+	font-weight: bold !important;
+	border-width: 2px !important;
+}
+
+.similar-cocktail {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 30px;
+}
+
+.similar-cocktail h1 {
+	font-size: 2rem;
+	color: #000000c5;
+	font-weight: bolder;
+}
+
+#detail-middle-banner {
+	width: 100%;
+	/* background-color: black; */
+	padding: 20px;
+	box-sizing: border-box;
+	margin: 20px 0;
+}
+
+.explanation-paper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 70vw;
+	max-height: 90vh;
+	margin: 0 auto;
+	margin-top: 5rem;
+	overflow: hidden;
+}
+
+.explanation-paper-img-container {
+	position: relative;
+	width: 100%;
+}
+
+.explanation-paper-img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+.explanation-div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding-top: 40px;
+	text-align: center;
+	z-index: 1;
+	font-size: 2.3vw; /* 텍스트의 크기를 vw로 설정 */
+	font-weight: bold;
+}
+
+.ingredient-paper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 70vw;
+	/* max-height: 90vh; */
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.ingredient-paper-img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	opacity: 0.5;
+}
+
+.ingredient-list {
+	position: absolute;
+	top: 50%; /* 이미지의 중앙에 위치 */
+	left: 50%; /* 이미지의 중앙에 위치 */
+	transform: translate(-50%, -40%); /* 이미지와 텍스트를 중앙으로 정렬 */
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	margin: 0 auto;
+	width: 35vw;
+}
+
+.ingredient-row {
+	display: flex;
+	/* justify-content: space-between; */
+	/* align-items: center; */
+	margin-bottom: 10px; /* 각 재료 행 사이의 간격 조절 */
+}
+
+.item-ingredient,
+.item-measure {
+	margin: 0; /* 기본 마진 제거 */
+	font-size: 2.3vw;
+	font-weight: bold;
+	text-align: center;
+}
+
+.item-ingredient {
+	width: 60%;
+	color: rgb(254, 51, 15);
+}
+
+.item-measure {
+	width: 40%;
+	color: rgb(109, 196, 55);
+}
+
+.buttonWrap {
+	margin-top: 2rem !important;
+	margin-bottom: 2rem !important;
+}
+.recipe-btn {
+	margin-left: 1rem !important;
+}
+
+.youtube-btn {
+	font-size: 0.4rem !important;
+	font-weight: 900 !important;
+	border: 3px solid red !important;
+	margin-bottom: 1rem !important;
+}
+
+.disabled-btn {
+	width: auto !important;
+	max-width: 100% !important;
+	margin-bottom: 1rem !important;
+}
+
+#container {
+	margin: 0 auto;
+	max-width: 520px;
+	text-align: center;
+}
+
+#container h1 {
+	font-weight: normal;
+	font-size: 2rem;
+	text-transform: uppercase;
+	margin: 0.3125em 0;
+	background-color: white;
+	position: relative;
+	display: inline-block;
+	padding: 0 10px;
+	z-index: 2;
+	text-align: center; /* 가운데 정렬 추가 */
+}
+
+.style-1 {
+	font-family: "Pacifico", sans-serif;
+	text-transform: none !important;
+}
+
+.recipe-container {
+	position: absolute;
+	top: 9%;
+	left: 40.5%;
+	color: rgb(0, 0, 0);
+	padding: 5px;
+	text-align: center;
+	z-index: 1;
+	font-size: 2.3vw; /* 텍스트의 크기를 vw로 설정 */
+	font-weight: bold;
+}
+
+.recipe-container h1 {
+	border-bottom: 2px solid black;
+	font-weight: normal;
+	font-size: 150%;
+	text-transform: uppercase;
+	margin: 0.3125em 0;
+	background-color: rgb(243, 243, 243);
+	position: relative;
+	display: inline-block;
+	padding: 0 10px;
+	z-index: 2;
+	text-align: center; /* 가운데 정렬 추가 */
+}
+
+#ingredient-container {
+	position: absolute;
+	top: 4%;
+	left: 37%;
+	color: rgb(0, 0, 0);
+	padding: 5px;
+	text-align: center;
+	z-index: 1;
+	font-size: 2.3vw; /* 텍스트의 크기를 vw로 설정 */
+	font-weight: bold;
+}
+
+#ingredient-container h1 {
+	border-bottom: 2px solid black;
+	font-weight: normal;
+	font-size: 150%;
+	text-transform: uppercase;
+	margin: 0.3125em 0;
+	background-color: white;
+	position: relative;
+	display: inline-block;
+	padding: 0 10px;
+	z-index: 2;
+	text-align: center; /* 가운데 정렬 추가 */
+}
+
+.youtube {
+	width: 100%;
+	height: 100%;
+}
+
+@media (max-width: 500px) {
+	.explanation-paper {
+		width: 90vw;
+	}
+	.ingredient-paper {
+		width: 90vw;
+		font-size: 14px;
+	}
+	.explanation-div {
+		width: 300px;
+		font-size: 12px;
+	}
+	.item-ingredient,
+	.item-measure {
+		font-size: 12px;
+	}
+}

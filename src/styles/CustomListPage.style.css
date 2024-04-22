@@ -1,0 +1,146 @@
+.bannerSection {
+    background-image: url('../assets/custombanner2.jpg');
+    background-size: cover;
+    background-position: 50% 55%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: last baseline;
+}
+
+.bannerSection button {
+    height: 50px;
+    padding: 10px 20px;
+    background-color: white;
+    color: rgba(253, 73, 38, 100);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 20px 20px;
+}
+
+.clickText {
+    display: none;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes blink {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+.customTitle {
+    font-size: 25px;
+    margin: 20px;
+}
+
+.customItemSection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 50px;
+    gap: 20px;
+}
+
+.sample {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.01;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.imageBox {
+    border-radius: 5px;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+.imageBox:hover {
+    background-color: rgba(0, 0, 0, 0.052);
+}
+
+.imageBox img {
+    margin-top: 1em;
+    width: 60%;
+    height: 80%;
+}
+
+.textBox {
+    background-color: rgba(253, 123, 38, 100);
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    padding-left: 0.5em;
+}
+
+.customTextBox {
+    background-color: rgb(198, 99, 244);
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    padding-left: 0.5em;
+}
+
+.customsTitle {
+    font-size: 20px
+}
+
+.customsScript {
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faHeart {
+    font-size: 20px;
+    color: white;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+/* 모바일 화면 */
+@media screen and (max-width: 768px) {
+    .customItemSection {
+        grid-template-columns: repeat(3, 1fr); 
+        margin: 0 20px; 
+        gap: 10px; 
+    }
+    .customsTitle {
+        font-size: 16px
+    }
+    .customsScript {
+        font-size: 10px;
+    }
+    .faHeart {
+        font-size: 13px;
+      }
+}
+
+/* 패드 화면 */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .customItemSection {
+        grid-template-columns: repeat(4, 1fr); 
+        margin: 0 30px; 
+        gap: 15px; 
+    }
+}

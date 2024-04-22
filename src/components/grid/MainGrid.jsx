@@ -1,0 +1,96 @@
+import React from "react";
+
+const MainGrid = () => {
+	return (
+		<div>
+			<ul id="main-grid">
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>@shake&Drink</li>
+						<li>#Cocktail</li>
+						<li>#shakendrink.com</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	);
+};
+
+export default MainGrid;

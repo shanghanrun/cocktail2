@@ -1,0 +1,207 @@
+.customSection {
+    padding: 0 40px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.customSection > * {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.customSection > .writeSection {
+    padding: 1em 1.8em 1em 1em;
+}
+
+/* 레시피 작성하는 영역 */
+.writeSection {
+    width: 70%;
+}
+
+.writeSection > * {
+    margin-bottom: 1em;
+}
+
+.photoContainer {
+    display: flex;
+    flex-direction: column;
+}
+.photoGrid {
+    margin-left: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 0.5em;
+    gap: 20px;
+}
+.imgBox {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.clicked {
+    border: 2px solid transparent;
+    animation: borderAnimation 2s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% {border-color: rgba(253, 103, 38, 0);}
+    25% {border-color: rgba(253, 103, 38, 0.5); }
+    50% {border-color: rgba(253, 103, 38, 1);}
+    75% { border-color: rgba(253, 103, 38, 0.5);}
+}
+
+.itemForm{
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0.3em 0.1em 0.3em 0.6em;
+}
+
+.itemHeader {
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.ingredientsSearch {
+    width: 100%;
+    padding: 0.5em;
+}
+
+.amount {
+    display: flex;
+}
+
+.amount input {
+    width: 62%;
+    border-radius: 5px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    height: 20px;
+}
+
+.amount span {
+    margin-left: 1em;
+}
+
+.amountUnit {
+    border-radius: 10px;
+    width: 35%;
+    height: 50px;
+    margin: 0.5em 0;
+}
+
+.addedIngredients{
+    margin: 1em;
+    color: rgba(253, 103, 38, 100);
+}
+
+.buttonClass {
+    color: white;
+    margin-top: 0.3em;
+    background-color: rgba(253, 103, 38, 100);
+    border-radius: 5px;
+    width: 10%;
+    height: 40px;
+    margin-left: 90%;
+}
+
+
+
+/* 레시피 카테고리 셋팅 영역 */
+.settingSection {
+    width: 30%;
+    display: flex;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3em;
+}
+
+.infoBox img {
+    margin-top: 0.3em;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.settingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settingBox button {
+    color: white;
+    margin-top: 2em;
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: rgba(253, 73, 38, 100);
+}
+
+.settingBox button:disabled {
+    background-color: gray;
+}
+
+.alcoholic {
+    display: flex;
+}
+
+.alcoholic button {
+    background-color: rgb(204, 138, 255);
+    width: 100%;
+    padding: 10px 13.5px;
+    margin-top: 1em;
+    font-size: 10px;
+}
+
+/* 공통 사용 스타일 */
+.inputField {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.textField {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.numChar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 모바일 화면 */
+@media screen and (max-width: 1268px) {
+    .customSection {
+        flex-direction: column;
+    }
+    .writeSection {
+        width: 100%;
+    }
+    .settingSection {
+        width: 100%;
+    }
+}
