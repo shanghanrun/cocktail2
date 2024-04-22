@@ -32,7 +32,8 @@ const SearchIngredient= ()=>{
 						target: 'ko' 
 						}
 					);
-					translatedList.push(resp.data.data.translations[0].translatedText);
+					translatedList.push(resp.data.data.translations[0].translatedText.replace(/&#?\w+;/g, ''));
+					//html태그가 번역되면서 '$#39;'문자열이 섞여 들어온다.
 				} catch (error) {
 					console.error('Error translating text:', error);
 				}
@@ -72,13 +73,17 @@ const SearchIngredient= ()=>{
 				{isKor? '영어원문' : '한글번역'}
 				</Button>
 				<Container
-					maxWidth="lg" sx={{ border: "2px solid grey", padding: "20px" }}
+					maxWidth="lg" sx={{ padding: "20px", fontSize:'26px', border:'3px solid #6173fa', borderRadius:'30px' }}
 				>
-					<div>재료 : {usingData?.strIngredient}</div>
-					<div>타입: {usingData?.strType}</div>
-					<div>알콜유무 : {!isKor? usingData?.strAlcohol: kTextList[0]}</div>
-					<div>도수 : {usingData?.strABV}</div>
-					<div style={{marginTop:'10px'}}>상세정보 : {!isKor? usingData?.strDescription: kTextList[1]}</div>
+					<div style={{background: '#c8e1c8', borderRadius:'10px', padding: '20px'}}>
+						<div>재료 : {usingData?.strIngredient}</div>
+						<div>타입: {usingData?.strType}</div>
+						<div>알콜유무 : {!isKor? usingData?.strAlcohol: kTextList[0]}</div>
+						<div>도수 : {usingData?.strABV}</div>
+					</div>
+					<Container  sx={{ border: "2px solid grey", borderRadius:'10px', padding: "20px", mt:'10px', fontSize:"22px", background:'#e0e4fd' }}>
+						<div style={{marginTop:'25px'}}>상세정보 : {!isKor? usingData?.strDescription: kTextList[1]}</div>
+					</Container>
 				</Container>
 			</Container>
 		</div>

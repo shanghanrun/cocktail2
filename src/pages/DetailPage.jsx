@@ -34,7 +34,7 @@ const DetailPage = () => {
 				<LoadingPage />
 			) : (
 				<div>
-					<DetailCocktail detailData={detailData} detailsData={detailsData} />
+					<DetailCocktail detailData={detailData} />
 					<RecommendCocktail searchByIngredientData={searchByIngredientData} base={base} />
 				</div>
 			)}

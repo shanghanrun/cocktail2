@@ -1,0 +1,9 @@
+.active{
+	color: rgb(0, 89, 255);
+}
+.simple-card{
+	transition: all 0.5s;
+}
+.simple-card:hover{
+	transform: scale(1.2)
+}

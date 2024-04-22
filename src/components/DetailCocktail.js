@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import midBanner from "../assets/image/jazzbanner.png";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import FormGroup from "@mui/material/FormGroup";
-import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
@@ -19,6 +18,8 @@ import Video from "./Video/Video";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useBookmark } from "../store/bookmarkStore";
 
+import axios from 'axios';
+
 const style = {
 	position: "absolute",
 	top: "50%",
@@ -33,8 +34,45 @@ const style = {
 	// p: 10,
 };
 
-const DetailCocktail = ({ detailData , detailsData }) => {
-	const [open, setOpen] = React.useState(false);
+const DetailCocktail = ({ detailData }) => {
+	const [isKor, setIsKor] = useState(false)
+	const [isActive, setIsActive] = useState(false)
+	const [primaryData, setPrimaryData] = useState([])
+	const apiKey = process.env.REACT_APP_API_KEY2; 
+	console.log('apikey:', apiKey)
+	const [eTextList, setETextList] = useState([]);
+	const [kTextList, setKTextList] = useState([]);
+
+	async function translate(){
+		if(isKor){
+			setIsKor(false)
+		} else{
+			console.log('번역시작')
+			const translatedList=[]
+
+			for(const text of eTextList){
+				try{
+					const resp = await axios.post(
+						`https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+						{
+						q: text,
+						source: 'en',
+						target: 'ko' 
+						}
+					);
+					translatedList.push(resp.data.data.translations[0].translatedText);
+					//html태그가 번역되면서 '$#39;'문자열이 섞여 들어갈 경우가 있다. 지금은 또 괜찮음...
+				} catch (error) {
+					console.error('Error translating text:', error);
+				}
+			}
+			setIsKor(true)
+			setKTextList(translatedList);
+			console.log('번역완료')
+		}
+	}
+
+	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	console.log("detailData", detailData);
@@ -47,6 +85,14 @@ const DetailCocktail = ({ detailData , detailsData }) => {
 		inputForm2.current.scrollIntoView({ behavior: "smooth", block: "start" });
 	};
 	const { addBookmark } = useBookmark();
+
+
+	useEffect(() => {
+		if(detailData){
+			setPrimaryData(detailData);
+			setETextList([detailData.strDrink, detailData.strInstructions]);
+		}
+    }, []);
 
 	return (
 		<div>
@@ -76,10 +122,11 @@ const DetailCocktail = ({ detailData , detailsData }) => {
 						</div>
 
 						<div>
-							<span className="title">한글칵테일</span>
-							<span className="secondTitle">{detailData?.strDrink}</span>
+							<span className="title">음료 : {!isKor? detailData?.strDrink: kTextList[0]}</span>
+							{/* <span className="secondTitle">{!isKor? eTextList[0]: kTextList[0]}</span> */}
 						</div>
 						<div className="str-glass">Cup : {detailData?.strGlass}</div>
+						<div className="str-category">Cup : {detailData?.strCategory}</div>
 						<div className="buttonWrap">
 							<div>
 								<Button
@@ -120,27 +167,44 @@ const DetailCocktail = ({ detailData , detailsData }) => {
 										No recipe
 									</Button>
 								)}
-							</div>
-
+						</div>
+						<div>
+							{detailData?.strInstructions ? (
+								<div style={{display:'flex', gap:'20px'}}>
+									<Button variant="contained" onClick={translate} 
+										style={{background:'red', margin:'20px 0'}}>
+										{isKor? '영어원문' : '한글번역'}
+									</Button>
+									<div style={{ width: "200px", marginTop:'20px',fontSize:'20px' }}>
+										<BookmarkIcon className={isActive ? "active" : ""}
+											id="bookmarkIcon"
+											sx={{ fontSize:'30px', "&:hover": { color: "#004cff", transform:'scale(1.2)' } }}
+											onClick={()=>{
+												setIsActive(!isActive)
+												addBookmark(detailData)
+											}}
+										/> 북마크 추가
+									</div>
+								</div>
+							)
+							
+							:(
+								<div>번역할 원문이 없습니다.</div>
+							)
+							}
+						</div>
+						
 						
 						{/* <FormGroup>
 							<FormControlLabel control={<Switch defaultChecked />} label="한글 번역" />
 						</FormGroup> */}
-						<div style={{ width: "200px" }}>
-							<BookmarkIcon
-								id="bookmarkIcon"
-								sx={{ "&:hover": { color: "#004cff" } }}
-								onClick={()=>{
-									addBookmark(detailData)
-								}}
-							/> 북마크 추가
-						</div>
+						
 					</div>
 				</Grid>
 			</Grid>
 			<Paper elevation={12} className="ingredient-paper" ref={inputForm1}>
 				<div className="explanation-paper-img-container">
-					<img src={ingredientCocktail} className="ingredient-paper-img" />
+					<img src={ingredientCocktail} alt="" className="ingredient-paper-img" />
 					<div id="ingredient-container">
 							<h1 class="style-1">Ingredient</h1>
 						</div>
@@ -161,9 +225,9 @@ const DetailCocktail = ({ detailData , detailsData }) => {
 			</div> */}
 			<Paper elevation={12} className="explanation-paper" ref={inputForm2}>
 				<div className="explanation-paper-img-container">
-					<img src={receiptCocktail2} className="explanation-paper-img" />
+					<img src={receiptCocktail2} alt="" className="explanation-paper-img" />
 					<div className="recipe-container"><h1 class="style-1">Recipe</h1></div>
-					<div className="explanation-div">{detailData?.strInstructions}</div>
+					<div className="explanation-div">{!isKor? detailData?.strInstructions : kTextList[1]}</div>
 				</div>
 			</Paper>
 		</div>

@@ -2,7 +2,7 @@
 const SimpleCard = ({item,showDetail}) => {
 
   return (
-	<div onClick={()=>showDetail(item)}
+	<div className="simple-card" onClick={()=>showDetail(item)}
 		style={{
 			border: '1.5px solid #b6b5b5', borderRadius:'10px',
 			marginTop:'10px', padding:'10px',

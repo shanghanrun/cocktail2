@@ -249,7 +249,7 @@ function UserPage() {
 									<div>
 										<div style={{ width: "60px", textAlign: "center" }}>
 											<BookmarkIcon
-												sx={{ "&:hover": { color: "#004cff" } }}
+												sx={{ "&:hover": { color: "#004cff", transform:'scale(1.2)' } }}
 												onClick={showBookmark}
 											/>
 										</div>

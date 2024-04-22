@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import midBanner from "../assets/image/jazzbanner.png";
 import { Container, Grid } from "@mui/material";
 import Paper from "@mui/material/Paper";
@@ -33,7 +33,8 @@ const style = {
 	// p: 10,
 };
 
-const DetailCocktail2 = ({ detailData , detailsData }) => {
+const DetailCocktail2 = ({ detailData }) => {
+	const [isActive, setIsActive] = useState(false)
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -50,7 +51,7 @@ const DetailCocktail2 = ({ detailData , detailsData }) => {
 
 	return (
 		<div>
-			{/* <Modal
+			<Modal
 				open={open}
 				onClose={handleClose}
 				aria-labelledby="modal-modal-title"
@@ -59,7 +60,7 @@ const DetailCocktail2 = ({ detailData , detailsData }) => {
 				<Box sx={style}>
 					<Video strVideo={detailData.strVideo?detailData.strVideo:null} />
 				</Box>
-			</Modal> */}
+			</Modal>
 			<Grid container className="detail-information-container" spacing={2}>
 				<Grid item xs={12} sm={6}>
 					<div className="cocktail-image-wrap">
@@ -100,7 +101,7 @@ const DetailCocktail2 = ({ detailData , detailsData }) => {
 							</Button></div>
 							
 						</div>
-						{/* <div>
+						<div>
 								{detailData.strVideo ? (
 									
 									<Button
@@ -117,17 +118,18 @@ const DetailCocktail2 = ({ detailData , detailsData }) => {
 										No recipe
 									</Button>
 								)}
-							</div> */}
+							</div>
 
 						
 						{/* <FormGroup>
 							<FormControlLabel control={<Switch defaultChecked />} label="한글 번역" />
 						</FormGroup> */}
-						<div style={{ width: "200px" }}>
-							<BookmarkIcon
+						<div style={{ width: "200px",fontSize:'20px' }}>
+							<BookmarkIcon className={isActive ? "active" : ""}
 								id="bookmarkIcon"
-								sx={{ "&:hover": { color: "#004cff" } }}
+								sx={{ fontSize:'30px',"&:hover": { color: "#004cff", transform:'scale(1.2)' } }}
 								onClick={()=>{
+									setIsActive(!isActive)
 									addBookmark(detailData)
 								}}
 							/> 북마크 추가
@@ -137,7 +139,7 @@ const DetailCocktail2 = ({ detailData , detailsData }) => {
 			</Grid>
 			<Paper elevation={12} className="ingredient-paper" ref={inputForm1}>
 				<div className="explanation-paper-img-container">
-					<img src={ingredientCocktail} className="ingredient-paper-img" />
+					<img src={ingredientCocktail} alt=""className="ingredient-paper-img" />
 					<div id="ingredient-container">
 							<h1 class="style-1">Ingredient</h1>
 						</div>
@@ -158,7 +160,7 @@ const DetailCocktail2 = ({ detailData , detailsData }) => {
 			</div> */}
 			<Paper elevation={12} className="explanation-paper" ref={inputForm2}>
 				<div className="explanation-paper-img-container">
-					<img src={receiptCocktail2} className="explanation-paper-img" />
+					<img src={receiptCocktail2} alt="" className="explanation-paper-img" />
 					<div className="recipe-container"><h1 class="style-1">Recipe</h1></div>
 					<div className="explanation-div">{detailData?.strInstructions}</div>
 				</div>
